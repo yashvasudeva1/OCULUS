@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FairFlow AI - Unified Responsible AI & Resilient Supply Chain Guardian powered by Google Gemini.">
+  <title>FairFlow AI - Fair Decisions. Resilient Supply Chains.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <a href="#" class="topbar-logo" id="logo-home">
+    <img src="assets\Logo 4.ai.png" alt="FairFlow Logo">
+    FairFlow AI
+  </a>
+  <nav class="topbar-nav" id="main-nav">
+    <a href="#" data-page="home" class="active" id="nav-home">Home</a>
+    <a href="#" data-page="dashboard" id="nav-dashboard">Dashboard</a>
+    <a href="#" data-page="fairness" id="nav-fairness">Fairness Audit</a>
+    <a href="#" data-page="supply" id="nav-supply">Supply Chain</a>
+  </nav>
+  <div class="topbar-actions">
+    <button class="btn btn-primary ripple" id="btn-get-started" onclick="showPage('dashboard')">Get Started</button>
+  </div>
+</header>
+
+<div class="toast" id="toast"></div>
+
+<main class="app">
+
+  <!-- ═══ HOME ═══ -->
+  <section class="page-view active" id="page-home">
+    <div class="hero-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+      <span class="orb orb-4"></span>
+    </div>
+    <div class="hero">
+      <h1 class="fade-up"><span class="accent-blue">Fair</span> decisions.<br><span class="accent-green">Resilient</span> supply chains.</h1>
+      <p class="fade-up stagger-1">One platform that uses Google Gemini to detect hidden bias in AI systems and preempt supply chain disruptions - before they cause harm.</p>
+      <div class="hero-actions fade-up stagger-2">
+        <button class="btn btn-primary ripple" onclick="showPage('fairness')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Audit AI Fairness
+        </button>
+        <button class="btn btn-outline ripple" onclick="showPage('supply')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Monitor Supply Chain
+        </button>
+      </div>
+    </div>
+    <div class="page">
+      <div class="stats-row">
+        <div class="stat-item fade-up stagger-1"><div class="stat-label">Bias Metrics Tracked</div><div class="stat-value blue">8</div><div class="stat-change positive">Including intersectional</div></div>
+        <div class="stat-item fade-up stagger-2"><div class="stat-label">Avg. Audit Time</div><div class="stat-value green">&lt;5m</div><div class="stat-change positive">vs. 3–6 weeks manual</div></div>
+        <div class="stat-item fade-up stagger-3"><div class="stat-label">Disruptions Prevented</div><div class="stat-value red">68%</div><div class="stat-change positive">Cascade prevention rate</div></div>
+        <div class="stat-item fade-up stagger-4"><div class="stat-label">CO₂ Reduced</div><div class="stat-value yellow">18%</div><div class="stat-change positive">Via green routing</div></div>
+      </div>
+      <div class="section-header fade-up stagger-3" style="text-align:center;margin-top:48px"><h2>How it works</h2><p>Three steps to fairer AI and resilient logistics</p></div>
+      <div class="three-col" style="margin-bottom:48px">
+        <div class="panel fade-up stagger-4"><div class="panel-body step-panel">
+          <div class="step-icon" style="background:#e8f0fe"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <h3 style="font-size:16px;margin-bottom:8px">Upload</h3><p style="font-size:13px;color:var(--on-surface-v)">Drop your dataset, model, or supply chain telemetry. Gemini auto-detects structure.</p>
+        </div></div>
+        <div class="panel fade-up stagger-5"><div class="panel-body step-panel">
+          <div class="step-icon" style="background:#fef7e0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h3 style="font-size:16px;margin-bottom:8px">Detect</h3><p style="font-size:13px;color:var(--on-surface-v)">AI scans for hidden biases, proxy variables, bottlenecks, and cascade risks.</p>
+        </div></div>
+        <div class="panel fade-up stagger-6"><div class="panel-body step-panel">
+          <div class="step-icon" style="background:#e6f4ea"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 style="font-size:16px;margin-bottom:8px">Fix & Report</h3><p style="font-size:13px;color:var(--on-surface-v)">One-click mitigation, optimized rerouting, and compliance-ready PDF reports.</p>
+        </div></div>
+      </div>
+      <div class="powered-row fade-up stagger-7">
+        <span class="powered-item">Google Gemini</span><span class="powered-item">Firebase</span><span class="powered-item">Google Maps</span><span class="powered-item">OR-Tools</span><span class="powered-item">Fairlearn</span><span class="powered-item">AIF360</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <section class="page-view" id="page-dashboard">
+    <div class="page">
+      <div class="section-header fade-up"><h2>Unified Dashboard</h2><p>Organization-wide fairness health and supply chain resilience at a glance</p></div>
+      <div class="stats-row">
+        <div class="stat-item fade-up stagger-1"><div class="stat-label">Fairness Health Score</div><div class="stat-value green">78</div><div class="stat-change positive">↑ 36 pts from last month</div></div>
+        <div class="stat-item fade-up stagger-2"><div class="stat-label">Supply Chain Resilience</div><div class="stat-value blue">91</div><div class="stat-change positive">↑ 20 pts from last month</div></div>
+        <div class="stat-item fade-up stagger-3"><div class="stat-label">Active Audits</div><div class="stat-value" style="color:var(--on-surface)">3</div><div class="stat-change">2 completed, 1 in progress</div></div>
+        <div class="stat-item fade-up stagger-4"><div class="stat-label">Active Shipments</div><div class="stat-value" style="color:var(--on-surface)">48</div><div class="stat-change positive">41 on-time</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="panel fade-up stagger-3"><div class="panel-header"><h3>Fairness Trend (30 days)</h3><span class="chip chip-green">Improving</span></div><div class="panel-body"><canvas id="fairness-trend-chart" height="200"></canvas></div></div>
+        <div class="panel fade-up stagger-4"><div class="panel-header"><h3>Supply Chain Resilience (30 days)</h3><span class="chip chip-green">Stable</span></div><div class="panel-body"><canvas id="sc-trend-chart" height="200"></canvas></div></div>
+      </div>
+      <div class="panel fade-up stagger-5" style="margin-top:24px">
+        <div class="panel-header"><h3>Recent Alerts</h3><button class="btn btn-tonal" style="padding:6px 14px;font-size:12px">View All</button></div>
+        <div class="panel-body" style="padding:0"><table class="data-table" id="alerts-table"><thead><tr><th>Time</th><th>Domain</th><th>Alert</th><th>Severity</th><th>Status</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAIRNESS ═══ -->
+  <section class="page-view" id="page-fairness">
+    <div class="page">
+      <div class="section-header fade-up"><h2>Fairness Audit Studio</h2><p>Upload a dataset or model to detect, measure, and fix hidden biases</p></div>
+      <div class="tabs" id="fairness-tabs">
+        <button class="tab active" data-tab="upload" id="tab-upload">Upload</button>
+        <button class="tab" data-tab="scan" id="tab-scan">Bias Scan</button>
+        <button class="tab" data-tab="mitigate" id="tab-mitigate">Mitigate</button>
+        <button class="tab" data-tab="whatif" id="tab-whatif">What-If</button>
+      </div>
+
+      <!-- Upload Tab -->
+      <div class="page-view active" id="ftab-upload" style="display:block;padding-top:24px">
+        <div class="upload-zone fade-up" id="upload-zone" onclick="document.getElementById('file-upload').click()">
+          <input type="file" id="file-upload" style="display:none" accept=".csv,.json,.parquet" onchange="handleFileUpload(event)">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 34V14m0 0l-8 8m8-8l8 8" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="40" height="40" rx="8"/></svg>
+          <h4>Drop your dataset here (or click to browse)</h4><p>CSV, JSON, or Parquet - up to 100 MB</p>
+          <p style="margin-top:12px"><span class="chip chip-blue">Or use sample: Hiring Dataset (10K records)</span></p>
+        </div>
+        <div style="text-align:center;margin-top:16px"><button class="btn btn-primary ripple" id="btn-load-sample" onclick="loadSampleData()">Load Sample Hiring Dataset</button></div>
+        <div id="data-preview" style="display:none;margin-top:24px">
+          <div class="panel scale-in"><div class="panel-header"><h3 id="preview-title">Data Preview</h3><span class="chip chip-blue" id="preview-stats">10,247 records • 12 columns</span></div><div class="panel-body" style="padding:0;overflow-x:auto"><table class="data-table" id="preview-table"><thead></thead><tbody></tbody></table></div></div>
+          <div class="gemini-box fade-up stagger-2" style="margin-top:16px" id="gemini-detect-box">
+            <p><strong>Sensitive attributes detected:</strong> <span class="chip chip-yellow">gender</span> <span class="chip chip-yellow">ethnicity</span></p>
+            <p style="margin-top:8px"><strong>Proxy variable flagged:</strong> <span class="chip chip-red">zip_code</span> - correlates with ethnicity at r=0.74</p>
+            <p style="margin-top:8px">This dataset contains features that could lead to discriminatory outcomes. Recommend proceeding to full bias scan.</p>
+          </div>
+          <div style="text-align:center;margin-top:16px"><button class="btn btn-primary ripple" onclick="runBiasScan()">Run Fairness Audit →</button></div>
+        </div>
+      </div>
+
+      <!-- Scan Tab -->
+      <div class="page-view" id="ftab-scan" style="padding-top:24px">
+        <div id="scan-loader" class="g-loader" style="display:none"><span></span><span></span><span></span><span></span></div>
+        <div id="scan-results" style="display:none">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:32px">
+            <div style="text-align:center" class="scale-in">
+              <div class="fairness-score-ring"><svg viewBox="0 0 160 160"><circle class="track" cx="80" cy="80" r="70"/><circle class="progress" cx="80" cy="80" r="70" id="score-ring-progress" stroke="#EA4335" stroke-dasharray="440" stroke-dashoffset="440"/></svg><div class="score-text"><span class="score-num" id="overall-score">0</span><span class="score-label">out of 100</span></div></div>
+              <span class="chip chip-red">Needs Attention</span>
+            </div>
+            <div class="slide-in"><h3 style="font-size:16px;margin-bottom:16px">Fairness Metrics</h3><div class="metric-list" id="metrics-list"></div></div>
+          </div>
+          <div class="gemini-box fade-up stagger-5" style="margin-top:24px">
+            <p>The model shows significant <strong>gender-based disparity</strong> in hiring recommendations. Female applicants with identical qualifications to male applicants are being approved at <strong>0.73× the rate</strong>. The primary driver is the <code>years_experience</code> feature, which correlates with gender due to historical workforce participation gaps. Additionally, <code>zip_code</code> acts as an ethnicity proxy - applicants from predominantly minority zip codes receive 22% fewer positive outcomes.</p>
+          </div>
+          <div style="text-align:center;margin-top:16px"><button class="btn btn-primary ripple" onclick="showMitigate()">Fix This →</button></div>
+        </div>
+      </div>
+
+      <!-- Mitigate Tab -->
+      <div class="page-view" id="ftab-mitigate" style="padding-top:24px">
+        <h3 style="font-size:16px;margin-bottom:16px">Choose Mitigation Strategy</h3>
+        <div class="route-options" id="mitigation-options">
+          <div class="route-option selected fade-up stagger-1" onclick="selectMitigation(this,'reweight')"><div class="route-option-label" style="color:var(--g-green)">Reweighting</div><div class="route-option-stat">Accuracy impact: <strong>-2.1%</strong></div><div class="route-option-stat">Fairness gain: <strong>+83%</strong></div><div class="route-option-stat">Complexity: <strong>Low</strong></div></div>
+          <div class="route-option fade-up stagger-2" onclick="selectMitigation(this,'threshold')"><div class="route-option-label" style="color:var(--g-blue)">Threshold Tuning</div><div class="route-option-stat">Accuracy impact: <strong>-3.5%</strong></div><div class="route-option-stat">Fairness gain: <strong>+87%</strong></div><div class="route-option-stat">Complexity: <strong>Medium</strong></div></div>
+          <div class="route-option fade-up stagger-3" onclick="selectMitigation(this,'adversarial')"><div class="route-option-label" style="color:var(--g-yellow)">Adversarial Debiasing</div><div class="route-option-stat">Accuracy impact: <strong>-5.2%</strong></div><div class="route-option-stat">Fairness gain: <strong>+91%</strong></div><div class="route-option-stat">Complexity: <strong>High</strong></div></div>
+        </div>
+        <h3 style="font-size:16px;margin:24px 0 16px">Before / After Comparison</h3>
+        <div class="compare-grid">
+          <div class="compare-col before fade-up stagger-4"><h4 style="color:#c5221f">Before Mitigation</h4><div class="compare-row"><span>Accuracy</span><strong>89.2%</strong></div><div class="compare-row"><span>F1 Score</span><strong>0.87</strong></div><div class="compare-row"><span>Demographic Parity</span><strong style="color:#c5221f">0.31</strong></div><div class="compare-row"><span>Equalized Odds</span><strong style="color:#c5221f">0.28</strong></div><div class="compare-row"><span>Disparate Impact</span><strong style="color:#c5221f">0.62</strong></div></div>
+          <div class="compare-col after fade-up stagger-5" id="after-col"><h4 style="color:#137333">After Mitigation</h4><div class="compare-row"><span>Accuracy</span><strong>87.1%</strong></div><div class="compare-row"><span>F1 Score</span><strong>0.85</strong></div><div class="compare-row"><span>Demographic Parity</span><strong style="color:#137333">0.92</strong></div><div class="compare-row"><span>Equalized Odds</span><strong style="color:#137333">0.89</strong></div><div class="compare-row"><span>Disparate Impact</span><strong style="color:#137333">0.94</strong></div></div>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px">
+          <button class="btn btn-success ripple" onclick="toast('Model updated successfully!')">Accept & Apply</button>
+          <button class="btn btn-outline ripple" onclick="toast('PDF report generated!')">Generate Report (PDF)</button>
+        </div>
+      </div>
+
+      <!-- What-If Tab -->
+      <div class="page-view" id="ftab-whatif" style="padding-top:24px">
+        <div class="panel scale-in"><div class="panel-header"><h3>Counterfactual Analysis</h3></div><div class="panel-body">
+          <p style="font-size:14px;color:var(--on-surface-v);margin-bottom:16px">Explore how changing a single attribute affects the model's decision.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <label style="font-size:13px;font-weight:500;display:block;margin-bottom:8px">Applicant Profile</label>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--surface-dim);border-radius:8px"><span>Age</span><strong>34</strong></div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--surface-dim);border-radius:8px"><span>Education</span><strong>Master's Degree</strong></div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:var(--surface-dim);border-radius:8px"><span>Experience</span><strong>8 years</strong></div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 12px;background:#fef7e0;border-radius:8px"><span>Gender</span>
+                  <select id="whatif-gender" onchange="updateWhatIf()" style="border:none;background:transparent;font-weight:600;font-size:13px;cursor:pointer"><option value="female">Female</option><option value="male">Male</option></select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label style="font-size:13px;font-weight:500;display:block;margin-bottom:8px">Model Prediction</label>
+              <div id="whatif-result" style="padding:24px;text-align:center;border-radius:var(--r-md);background:#fce8e6;transition:background .4s var(--ease)">
+                <div style="font-size:32px;font-weight:700;color:#c5221f;transition:color .4s" id="whatif-decision">REJECTED</div>
+                <div style="font-size:14px;color:var(--on-surface-v);margin-top:8px">Confidence: <strong id="whatif-confidence">73%</strong></div>
+              </div>
+              <div class="gemini-box" style="margin-top:12px"><p id="whatif-explanation">If this applicant's gender were changed to Male with all other attributes held constant, the model would predict <strong>APPROVED</strong> with 81% confidence. This indicates a direct gender bias in the model's decision boundary.</p></div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SUPPLY CHAIN ═══ -->
+  <section class="page-view" id="page-supply">
+    <div class="page">
+      <div class="section-header fade-up"><h2>Supply Chain Command Center</h2><p>Monitor, predict, and optimize global logistics in real time</p></div>
+      <div class="stats-row">
+        <div class="stat-item fade-up stagger-1"><div class="stat-label">Active Shipments</div><div class="stat-value" style="color:var(--on-surface)">48</div></div>
+        <div class="stat-item fade-up stagger-2"><div class="stat-label">On Time</div><div class="stat-value green">41</div></div>
+        <div class="stat-item fade-up stagger-3"><div class="stat-label">At Risk</div><div class="stat-value yellow">5</div></div>
+        <div class="stat-item fade-up stagger-4"><div class="stat-label">Disrupted</div><div class="stat-value red">2</div></div>
+      </div>
+      <div class="two-col">
+        <div class="panel fade-up stagger-3"><div class="panel-header"><h3>Shipments</h3></div><div class="shipment-list" id="shipment-list"></div></div>
+        <div class="fade-up stagger-4">
+          <div class="map-container"><div id="supply-map"></div></div>
+          <div id="shipment-detail" style="display:none;margin-top:16px">
+            <div class="gemini-box slide-in"><p id="shipment-gemini-text"></p></div>
+            <h3 style="font-size:16px;margin:16px 0 12px">Alternative Routes</h3>
+            <div class="route-options" id="route-options">
+              <div class="route-option fade-up stagger-1" onclick="selectRoute(this,0)"><div class="route-option-label" style="color:var(--g-blue)">Fastest</div><div class="route-option-stat">Time: <strong>6.2 days</strong></div><div class="route-option-stat">Cost: <strong>$12,400</strong></div><div class="route-option-stat">CO₂: <strong>2.4 tonnes</strong></div></div>
+              <div class="route-option fade-up stagger-2" onclick="selectRoute(this,1)"><div class="route-option-label" style="color:var(--g-green)">Cheapest</div><div class="route-option-stat">Time: <strong>7.1 days</strong></div><div class="route-option-stat">Cost: <strong>$10,800</strong></div><div class="route-option-stat">CO₂: <strong>3.1 tonnes</strong></div></div>
+              <div class="route-option fade-up stagger-3" onclick="selectRoute(this,2)"><div class="route-option-label" style="color:var(--g-yellow)">Greenest</div><div class="route-option-stat">Time: <strong>6.8 days</strong></div><div class="route-option-stat">Cost: <strong>$13,100</strong></div><div class="route-option-stat">CO₂: <strong>1.9 tonnes</strong></div></div>
+            </div>
+            <div style="text-align:center;margin-top:16px"><button class="btn btn-primary ripple" onclick="toast('Route applied - shipment rerouted successfully!')">Apply Selected Route</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
